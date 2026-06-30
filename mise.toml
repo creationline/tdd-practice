@@ -4,3 +4,4 @@ activate_aggressive = true
 [tools]
 node = "26.4.0"
 "npm:pnpm" = "11.9.0"
+"github-cli" = "2.95.0"
