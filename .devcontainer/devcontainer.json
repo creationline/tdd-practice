@@ -3,7 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "onCreateCommand": "mise trust --non-interactive && mise install && pnpm install",
   "customizations": {
     "vscode": {

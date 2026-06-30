@@ -13,5 +13,3 @@ ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 ENV PATH="/mise/shims:$PATH"
 
 RUN curl https://mise.run | sh
-
-WORKDIR /workspace

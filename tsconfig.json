@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2025",
+    "target": "esnext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
 
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
