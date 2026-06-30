@@ -1,0 +1,6 @@
+[settings]
+activate_aggressive = true
+
+[tools]
+node = "26.4.0"
+"npm:pnpm" = "11.9.0"

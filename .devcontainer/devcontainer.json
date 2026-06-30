@@ -1,0 +1,30 @@
+{
+  "name": "tdd-practice",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "onCreateCommand": "mise trust --non-interactive && mise install && pnpm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hverlin.mise-vscode"
+      ],
+      "settings": {
+        "mise.configureExtensionsAutomatically": true,
+        "mise.configureExtensionsIncludeGlobalTools": false,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "args": ["-l"]
+          }
+        },
+        "terminal.integrated.automationProfile.linux": {
+          "path": "/bin/bash",
+          "args": ["-l"]
+        }
+      }
+    }
+  }
+}
