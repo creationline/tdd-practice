@@ -8,7 +8,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "hverlin.mise-vscode"
+        "hverlin.mise-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "vitest.explorer",
+        "yoavbls.pretty-ts-errors"
       ],
       "settings": {
         "mise.configureExtensionsAutomatically": true,
