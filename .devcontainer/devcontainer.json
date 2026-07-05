@@ -10,10 +10,11 @@
       "extensions": [
         "hverlin.mise-vscode",
         "ms-vscode.vscode-typescript-next",
-        "vitest.explorer",
         "yoavbls.pretty-ts-errors"
       ],
       "settings": {
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
         "mise.configureExtensionsAutomatically": true,
         "mise.configureExtensionsIncludeGlobalTools": false,
         "terminal.integrated.defaultProfile.linux": "bash",
