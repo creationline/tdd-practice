@@ -105,8 +105,46 @@ pnpm test:watch
 
 ## セットアップ
 
+### devcontainer（推奨）
+
+devcontainer を使うと、Node.js・pnpm などの依存関係をローカル環境に一切インストールせずに開発を始められる。
+
+#### 1. Docker Engine をインストールする
+
+公式ドキュメントの手順に従ってインストールする: [Ubuntu](https://docs.docker.com/engine/install/ubuntu/) / [Debian](https://docs.docker.com/engine/install/debian/) / [Fedora](https://docs.docker.com/engine/install/fedora/) / [RHEL](https://docs.docker.com/engine/install/rhel/)
+
+インストール後、一般ユーザーで `docker` コマンドを使えるよう [post-install の手順](https://docs.docker.com/engine/install/linux-postinstall/) も済ませておく。
+
 ```bash
+sudo usermod -aG docker $USER
+# ログアウトして再ログインすると反映される
+```
+
+> **注意:** コンテナが動かせる環境であれば Docker Engine 以外でも動作する。OrbStack・Rancher Desktop・Podman Desktop など、好みのコンテナ基盤を使って構わない。
+
+#### 2. VS Code と Dev Containers 拡張機能をインストールする
+
+- [Visual Studio Code](https://code.visualstudio.com/) をインストール
+- VS Code の拡張機能タブで **Dev Containers**（`ms-vscode-remote.remote-containers`）を検索してインストール
+
+#### 3. コンテナを起動する
+
+1. VS Code でこのリポジトリを開く
+2. 右下に「Reopen in Container」の通知が出たらクリック（出ない場合はコマンドパレット `Ctrl+Shift+P` → `Dev Containers: Reopen in Container`）
+3. 初回はイメージのビルドに数分かかる。完了すると `mise install` と `pnpm install` が自動実行され、すぐに開発を始められる
+
+### ローカル（mise）
+
+[mise](https://mise.jdx.dev) をインストールしてから以下を実行する。
+
+```bash
+# mise のインストール（未インストールの場合）
+curl https://mise.run | sh
+
+# Node.js・pnpm などのツールをインストール
 mise install
+
+# パッケージをインストール
 pnpm install
 ```
 
