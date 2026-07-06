@@ -4,7 +4,8 @@
     "dockerfile": "Dockerfile"
   },
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "onCreateCommand": "mise trust --non-interactive && mise install && pnpm install",
+  "postCreateCommand": "sudo chown -R vscode:vscode /mise && mise trust --yes && mise install && pnpm install",
+  "postStartCommand": "sudo chown -R vscode:vscode /mise",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -27,8 +28,7 @@
         "terminal.integrated.automationProfile.linux": {
           "path": "/bin/bash",
           "args": ["-l"]
-        },
-        "cursor.cpp.disabledLanguages": ["typescript"]
+        }
       }
     }
   }

@@ -13,3 +13,7 @@ ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 ENV PATH="/mise/shims:$PATH"
 
 RUN curl https://mise.run | sh
+
+RUN mkdir -p /mise/cache /mise/migrations /mise/shims \
+    && chown -R vscode:vscode /mise \
+    && chmod -R a+rwX /mise
