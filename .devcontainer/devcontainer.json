@@ -27,7 +27,8 @@
         "terminal.integrated.automationProfile.linux": {
           "path": "/bin/bash",
           "args": ["-l"]
-        }
+        },
+        "cursor.cpp.disabledLanguages": ["typescript"]
       }
     }
   }
