@@ -2,6 +2,10 @@
 
 TDD練習用のリポジトリ。
 
+## 開発の進め方
+
+基本的に作業用ブランチを切って Pull Request で進める。必要に応じて Organization owner は `main` へ直接 push できる。
+
 ## カノンTDD
 
 1. **Red** — 失敗するテストを1つ書く
@@ -146,6 +150,22 @@ mise install
 
 # パッケージをインストール
 pnpm install
+```
+
+## GitHub 設定管理
+
+GitHub のリポジトリ設定は Terraform で管理する。認証は `gh` コマンドを使うため、事前にログインしておく。
+
+```bash
+gh auth login
+gh auth status
+```
+
+Terraform の実行は mise task 経由で行う。
+
+```bash
+mise run terraform:github:init
+mise run terraform:github:plan
 ```
 
 ## 練習課題

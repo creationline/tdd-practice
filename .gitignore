@@ -2,3 +2,6 @@ node_modules/
 dist/
 .mise.local.toml
 .pnpm-store/
+.terraform/
+*.tfstate
+*.tfstate.*

@@ -5,3 +5,16 @@ activate_aggressive = true
 node = "26.4.0"
 "npm:pnpm" = "11.9.0"
 "github-cli" = "2.95.0"
+terraform = "1.15.7"
+
+[tasks."terraform:github:fmt"]
+run = "terraform -chdir=terraform/github fmt"
+
+[tasks."terraform:github:init"]
+run = "GITHUB_TOKEN=$(gh auth token) terraform -chdir=terraform/github init"
+
+[tasks."terraform:github:validate"]
+run = "GITHUB_TOKEN=$(gh auth token) terraform -chdir=terraform/github validate"
+
+[tasks."terraform:github:plan"]
+run = "GITHUB_TOKEN=$(gh auth token) terraform -chdir=terraform/github plan"
