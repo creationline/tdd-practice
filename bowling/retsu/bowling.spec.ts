@@ -23,5 +23,12 @@ describe("frameCalc", () => {
       ]);
       expect(result).toBe(17);
     });
+    it("[[2,8],[5,1]]のときは15", () => {
+      const result = frameCalc([
+        [2,8],
+        [5,1],
+      ]);
+      expect(result).toBe(15);
+    });
   });
 });
