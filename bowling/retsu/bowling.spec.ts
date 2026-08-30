@@ -58,7 +58,7 @@ describe("frameCalc", () => {
       const result = frameCalc([
         [10, null],
         [10, null],
-        [3,1],
+        [3, 1],
       ]);
       expect(result).toBe(23);
     });
@@ -76,7 +76,36 @@ describe("frameCalc", () => {
       ]);
       expect(result).toBe('pending');
     });
-
+    describe('スペア', () => {
+      it("[[1,9]]のときはpending", () => {
+        const result = frameCalc([
+          [1, 9],
+        ]);
+        expect(result).toBe('pending');
+      });
+      it("[[5,5]]のときはpending", () => {
+        const result = frameCalc([
+          [5, 5],
+        ]);
+        expect(result).toBe('pending');
+      });
+    })
+    describe('ストライク', () => {
+      it("[[10,null],[10,null]]のときはpending", () => {
+        const result = frameCalc([
+          [10, null],
+          [10, null],
+        ]);
+        expect(result).toBe('pending');
+      });
+      it("[[10,null],[5,null]]のときはpending", () => {
+        const result = frameCalc([
+          [10, null],
+          [5, null],
+        ]);
+        expect(result).toBe('pending');
+      });
+    })
   })
 });
 
