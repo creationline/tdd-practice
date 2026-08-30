@@ -14,9 +14,12 @@ describe("frameCalc", () => {
     expect(result).toBe(6);
   });
   describe("スペアのとき", () => {
-    it("[[1,9],[7,null]]のときは17", ()=>{
-      const result = frameCalc([[1,9],[7,null]])
-      expect(result).toBe(17)
+    it("[[1,9],[7,1]]のときは17", () => {
+      const result = frameCalc([
+        [1, 9],
+        [7, 1],
+      ]);
+      expect(result).toBe(17);
     });
-  })
+  });
 });
