@@ -46,5 +46,38 @@ describe("frameCalc", () => {
       ]);
       expect(result).toBe(20);
     });
+    it("[[10,null],[10,null],[10,null]のときは30", () => {
+      const result = frameCalc([
+        [10, null],
+        [10, null],
+        [10, null],
+      ]);
+      expect(result).toBe(30);
+    });
+    it("[[10,null],[10,null],[3,1]のときは23", () => {
+      const result = frameCalc([
+        [10, null],
+        [10, null],
+        [3,1],
+      ]);
+      expect(result).toBe(23);
+    });
   });
+  describe("計算できない時", () => {
+    it("[[null,null]]のときはpending", () => {
+      const result = frameCalc([
+        [null, null],
+      ]);
+      expect(result).toBe('pending');
+    });
+    it("[[1,null]]のときはpending", () => {
+      const result = frameCalc([
+        [1, null],
+      ]);
+      expect(result).toBe('pending');
+    });
+
+  })
 });
+
+

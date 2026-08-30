@@ -1,4 +1,4 @@
-type Frame = [number, number | null];
+type Frame = [number | null, number | null];
 
 type CalcResult = number | "pending";
 export function frameCalc(frames: Frame[]): CalcResult {
@@ -23,8 +23,14 @@ export function frameCalc(frames: Frame[]): CalcResult {
     }
     case "strike": {
       const secondFrame = determineFrameState(frames[1]);
+      const thirdFrame = determineFrameState(frames[2]);
       if (secondFrame.type === "open" || secondFrame.type === "spare") {
         return 10 + secondFrame.first + secondFrame.second;
+      }
+      if (secondFrame.type === "strike") {
+        if (thirdFrame.type === "notRolled") return "pending";
+        if (thirdFrame.type === "strike") return 30;
+        return 20 + thirdFrame.first
       }
       return "pending";
     }
@@ -39,7 +45,7 @@ type FrameState =
   | { type: "strike" };
 
 function determineFrameState(frame: Frame | undefined): FrameState {
-  if (frame === undefined) {
+  if (frame === undefined || frame[0] === null) {
     return { type: "notRolled" };
   }
   if (frame[0] === 10) {
