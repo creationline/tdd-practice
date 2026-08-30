@@ -25,10 +25,26 @@ describe("frameCalc", () => {
     });
     it("[[2,8],[5,1]]のときは15", () => {
       const result = frameCalc([
-        [2,8],
-        [5,1],
+        [2, 8],
+        [5, 1],
       ]);
       expect(result).toBe(15);
+    });
+  });
+  describe("ストライクのとき", () => {
+    it("[[10,null],[2,7]]のときは19", () => {
+      const result = frameCalc([
+        [10, null],
+        [2, 7],
+      ]);
+      expect(result).toBe(19);
+    });
+    it("[[10,null],[5,5]]のときは20", () => {
+      const result = frameCalc([
+        [10, null],
+        [5, 5],
+      ]);
+      expect(result).toBe(20);
     });
   });
 });
