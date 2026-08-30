@@ -4,32 +4,32 @@
 
 #### 役なし
 
-- [x] [[1,2]]のときは3
-- [x] [[1,5],[3,4]]のときは6
+- [x] frame:[1,2], nextRoll:null, secondNextRoll:null のときは3
+- [x] frame:[1,5], nextRoll:3, secondNextRoll:null のときは6
 
 #### スペア
 
-- [x] [[1,9],[7,1]]のときは17
-- [x] [[2,8],[5,1]]のときは15
+- [x] frame:[1,9], nextRoll:7, secondNextRoll:null のときは17
+- [x] frame:[2,8], nextRoll:5, secondNextRoll:null のときは15
 
 #### ストライク
 
-- [x] [[10,null],[2,7]]のときは19
-- [x] [[10,null],[5,5]]のときは20
-- [x] [[10,null],[10,null],[10,null]]のときは30
-- [x] [[10,null],[10,null],[3,1]]のときは23
+- [x] frame:[10,null], nextRoll:2, secondNextRoll:7 のときは19
+- [x] frame:[10,null], nextRoll:5, secondNextRoll:5 のときは20
+- [x] frame:[10,null], nextRoll:10, secondNextRoll:10 のときは30
+- [x] frame:[10,null], nextRoll:10, secondNextRoll:3 のときは23
 
 #### まだ計算できない時
 
 - [x] 1フレームで2投終わってないとき
-  - [x] [null,null]
-  - [x] [1,null]
+  - [x] frame:[null,null]
+  - [x] frame:[1,null]
 - [x] スペアなので1投 ないと計算できない
-  - [x] [[1,9]]
-  - [x] [[5,5]]
+  - [x] frame:[1,9], nextRoll:null
+  - [x] frame:[5,5], nextRoll:null
 - [x] ストライクなので2投ないと計算できない
-  - [x] [[10,null],[10, null]]
-  - [x] [[10,null],[5, null]]
+  - [x] frame:[10,null], nextRoll:null
+  - [x] frame:[10,null], nextRoll:10, secondNextRoll:null
 
 - [ ] 10フレーム目は3回投球する
 - [ ] 全体のゲームを渡して計算できる
