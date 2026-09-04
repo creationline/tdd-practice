@@ -1,36 +1,26 @@
-type Frame = [number | null, number | null];
+type Pins = number | null
+type Frame = [Pins, Pins];
 
 type CalcResult = number | "pending";
-export function frameCalc(frames: Frame[]): CalcResult {
-  const firstFrame = determineFrameState(frames[0]);
+export function frameCalc(frame: Frame, next: Pins, afterNext: Pins): CalcResult {
+  const frameState = determineFrameState(frame);
 
-  switch (firstFrame.type) {
+  switch (frameState.type) {
     case "notRolled":
       return "pending";
     case "inProgress":
       return "pending";
     case "open":
-      return firstFrame.first + firstFrame.second;
+      return frameState.first + frameState.second;
     case "spare": {
-      const secondFrame = determineFrameState(frames[1]);
-      if (secondFrame.type === "notRolled") {
-        return "pending";
+      if (next !== null) {
+        return 10 + next;
       }
-      if (secondFrame.type === "strike") {
-        return 10 + 10;
-      }
-      return 10 + secondFrame.first;
+      return "pending"
     }
     case "strike": {
-      const secondFrame = determineFrameState(frames[1]);
-      const thirdFrame = determineFrameState(frames[2]);
-      if (secondFrame.type === "open" || secondFrame.type === "spare") {
-        return 10 + secondFrame.first + secondFrame.second;
-      }
-      if (secondFrame.type === "strike") {
-        if (thirdFrame.type === "notRolled") return "pending";
-        if (thirdFrame.type === "strike") return 30;
-        return 20 + thirdFrame.first
+      if (next !== null && afterNext !== null) {
+        return 10 + next + afterNext
       }
       return "pending";
     }
