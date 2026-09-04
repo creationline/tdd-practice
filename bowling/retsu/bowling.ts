@@ -1,5 +1,17 @@
 type Pins = number | null
 type Frame = [Pins, Pins];
+type LastFrame = [Pins,Pins,Pins]
+export type AllFrame = [Frame,Frame,Frame, Frame,Frame, Frame,Frame,Frame, Frame,LastFrame]
+
+export function calcAllFrame(frames: AllFrame): CalcResult[] {
+  const results: CalcResult[] = []
+  for (let i=0; i<10;i++) {
+    const result = frameCalc(frames[i], 0,0)
+    results.push(result)
+  }
+  return results
+}
+
 
 type CalcResult = number | "pending";
 export function frameCalc(frame: Frame, next: Pins, afterNext: Pins): CalcResult {

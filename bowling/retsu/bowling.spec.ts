@@ -1,5 +1,42 @@
 import { describe, it, expect } from "vitest";
-import { frameCalc } from "./bowling";
+import { calcAllFrame,type AllFrame, frameCalc } from "./bowling";
+
+describe("calcAllFrame", () => {
+  describe("1フレーム目まで終わっている", () => {
+    it("[[3,4]]のときは[7,pending,...", () => {
+      // arrange
+      const allFrames: AllFrame = [
+        [3, 4],
+        [null, null],
+        [null, null],
+        [null, null],
+        [null, null],
+        [null, null],
+        [null, null],
+        [null, null],
+        [null, null],
+        [null, null, null],
+      ];
+
+      // act
+      const result = calcAllFrame(allFrames);
+
+      // assert
+      expect(result).toStrictEqual([
+        7,
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+      ]);
+    });
+  });
+});
 
 describe("frameCalc", () => {
   describe("役なしのとき", () => {
