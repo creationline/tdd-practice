@@ -29,12 +29,12 @@ Todo リストは「今やること」を1つに絞り、思いついたこと�
 
 ### AI との役割分担
 
-| フェーズ | 担当 |
-|----------|------|
-| Todo（リストを書く） | 人間 |
-| Red（テストを書く） | 人間 |
-| Green（実装を書く） | AI でも可 |
-| Refactor | どちらでも可 |
+| フェーズ             | 担当         |
+| -------------------- | ------------ |
+| Todo（リストを書く） | 人間         |
+| Red（テストを書く）  | 人間         |
+| Green（実装を書く）  | AI でも可    |
+| Refactor             | どちらでも可 |
 
 テストを書くのは人間の仕事。AIにはテストの書き方や構文について質問できるが、テスト自体は自分で書く。
 
@@ -43,54 +43,54 @@ Todo リストは「今やること」を1つに絞り、思いついたこと�
 ### テストの構造
 
 ```ts
-import { describe, it, test, expect } from "vitest"
+import { describe, it, test, expect } from "vitest";
 
 // describe: テストをグループ化する。ネスト可能
 describe("fizzbuzz", () => {
   // it / test: 1つのテストケース（どちらでも同じ）
   it("1を渡すと'1'を返す", () => {
-    expect(fizzbuzz(1)).toBe("1")
-  })
+    expect(fizzbuzz(1)).toBe("1");
+  });
 
   test("3を渡すと'Fizz'を返す", () => {
-    expect(fizzbuzz(3)).toBe("Fizz")
-  })
-})
+    expect(fizzbuzz(3)).toBe("Fizz");
+  });
+});
 ```
 
 ### expect のマッチャー
 
 ```ts
 // 値の等値比較
-expect(value).toBe(1)           // プリミティブの厳密等値 (===)
-expect(value).toEqual({ a: 1 }) // オブジェクト・配列の深い等値比較
-expect(value).not.toBe(1)       // 否定
+expect(value).toBe(1); // プリミティブの厳密等値 (===)
+expect(value).toEqual({ a: 1 }); // オブジェクト・配列の深い等値比較
+expect(value).not.toBe(1); // 否定
 
 // 真偽
-expect(value).toBeTruthy()
-expect(value).toBeFalsy()
-expect(value).toBeNull()
-expect(value).toBeUndefined()
-expect(value).toBeDefined()
+expect(value).toBeTruthy();
+expect(value).toBeFalsy();
+expect(value).toBeNull();
+expect(value).toBeUndefined();
+expect(value).toBeDefined();
 
 // 数値
-expect(value).toBeGreaterThan(0)
-expect(value).toBeGreaterThanOrEqual(1)
-expect(value).toBeLessThan(10)
-expect(value).toBeCloseTo(0.3)  // 浮動小数点の比較
+expect(value).toBeGreaterThan(0);
+expect(value).toBeGreaterThanOrEqual(1);
+expect(value).toBeLessThan(10);
+expect(value).toBeCloseTo(0.3); // 浮動小数点の比較
 
 // 文字列
-expect(str).toContain("Fizz")
-expect(str).toMatch(/^Fizz/)
+expect(str).toContain("Fizz");
+expect(str).toMatch(/^Fizz/);
 
 // 配列
-expect(arr).toContain(3)
-expect(arr).toHaveLength(4)
+expect(arr).toContain(3);
+expect(arr).toHaveLength(4);
 
 // 例外
-expect(() => fn()).toThrow()
-expect(() => fn()).toThrow("エラーメッセージ")
-expect(() => fn()).toThrow(TypeError)
+expect(() => fn()).toThrow();
+expect(() => fn()).toThrow("エラーメッセージ");
+expect(() => fn()).toThrow(TypeError);
 ```
 
 ### スキップ・フォーカス
