@@ -1,3 +1,5 @@
-export function bowling(number1: number,number2: number): number {
-    return number1+ number2
-  }
+export function bowling(
+  frames: number[][],
+): number {
+  return frames.flat().reduce((sum, pins) => sum + pins, 0)
+}
