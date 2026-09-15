@@ -1,6 +1,6 @@
 {
-    "debug.javascript.defaultRuntimeExecutable": {
-        "pwa-node": "/mise/shims/node"
-    },
-    "cursor.cpp.disabledLanguages": ["typescript"]
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "/mise/shims/node"
+  },
+  "cursor.cpp.disabledLanguages": ["typescript"]
 }
