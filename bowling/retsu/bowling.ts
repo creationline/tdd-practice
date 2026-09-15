@@ -1,17 +1,11 @@
-type Pins = number | null
+type Pins = number | null;
 type Frame = [Pins, Pins];
-type LastFrame = [Pins,Pins,Pins]
-export type AllFrame = [Frame,Frame,Frame, Frame,Frame, Frame,Frame,Frame, Frame,LastFrame]
+type LastFrame = [Pins, Pins, Pins];
+export type AllFrame = [Frame, Frame, Frame, Frame, Frame, Frame, Frame, Frame, Frame, LastFrame];
 
 export function calcAllFrame(frames: AllFrame): CalcResult[] {
-  const results: CalcResult[] = []
-  for (let i=0; i<10;i++) {
-    const result = frameCalc(frames[i], 0,0)
-    results.push(result)
-  }
-  return results
+  return frames.map((frame) => frameCalc([frame[0], frame[1]], 0, 0));
 }
-
 
 type CalcResult = number | "pending";
 export function frameCalc(frame: Frame, next: Pins, afterNext: Pins): CalcResult {
@@ -28,11 +22,11 @@ export function frameCalc(frame: Frame, next: Pins, afterNext: Pins): CalcResult
       if (next !== null) {
         return 10 + next;
       }
-      return "pending"
+      return "pending";
     }
     case "strike": {
       if (next !== null && afterNext !== null) {
-        return 10 + next + afterNext
+        return 10 + next + afterNext;
       }
       return "pending";
     }

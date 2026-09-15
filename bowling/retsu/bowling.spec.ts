@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { calcAllFrame,type AllFrame, frameCalc } from "./bowling";
+import { calcAllFrame, type AllFrame, frameCalc } from "./bowling";
 
 describe("calcAllFrame", () => {
   describe("1フレーム目まで終わっている", () => {
