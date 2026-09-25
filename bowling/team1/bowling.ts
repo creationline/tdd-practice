@@ -1,17 +1,9 @@
-let sparePending = false;
-
-export function sum(rolls: number[]): number | string {
-  if (sparePending) {
-    sparePending = false;
-    return rolls[0];
-  }
-
-  const total = rolls[0] + rolls[1];
+type Rolls = [number, number]
+export function sum(rolls: Rolls): number | string {
+  const first = rolls[0];
+  const second = rolls[1];
+  const total = first + second;
   if (total === 10) {
-    if (rolls[0] === 1 && rolls[1] === 9) {
-      sparePending = true;
-      return 10;
-    }
     return "スペア";
   }
   return total;
