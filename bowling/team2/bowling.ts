@@ -4,12 +4,17 @@ export function bowling(frames: Frame[]): number {
   let score = 0
   for (let i = 0; i < frames.length; i++) {
     const frame = frames[i]
-    if (frame === undefined || frame[1] === undefined) {
+    if (frame === undefined) {
       continue
     }
+
     const first = frame[0]
-    const second = frame[1]
-    score += first + second
+    score += first
+
+    const second = frame[1] ?? 0
+    if (first !== 10){
+      score += second
+    }
 
     if (first + second === 10) {
       const nextFrame = frames[i + 1]
